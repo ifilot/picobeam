@@ -118,13 +118,9 @@ static PT_THREAD(protothread_latch(struct pt *pt)) {
     PIO pio = pio1;
     uint sm = 0;
 
-    // Define latch pin (GPIO 2) and data pins (GPIO 8-15)
-    const uint latch_pin = 2;
-    const uint data_base_pin = 8;
-
     // Initialize PIO program
     uint offset = pio_add_program(pio, &latch_program);
-    latch_program_init(pio, sm, offset, latch_pin, data_base_pin);
+    latch_program_init(pio, sm, offset, LATCH_PIN, DATA_BASE_PIN);
 
     while (true) {
         if(!pio_sm_is_rx_fifo_empty(pio, sm) && !flag_latch) {

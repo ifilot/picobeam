@@ -50,4 +50,4 @@ target_link_libraries(picobeam PRIVATE
 # must match with executable name
 pico_add_extra_outputs(picobeam)
 
-add_compile_options(-Ofast)
+add_compile_options(-Ofast -funroll-loops -ffast-math)

@@ -19,8 +19,8 @@ wait 1 irq 1 [3]           ; Wait for VSync active signal (ensures synchronizati
 ; Pixel color output loop
 colorout:
     pull block             ; Pull next color value from FIFO
-    out pins, 4 [4]        ; Output first pixel color to RGB pins
-    out pins, 4 [2]        ; Output next pixel color (slightly delayed for timing alignment)
+    out pins, 8 [2]        ; Output first pixel color to RGB pins
+    ;out pins, 4 [2]        ; Output next pixel color (slightly delayed for timing alignment)
     jmp x-- colorout       ; Decrement pixel counter and loop during horizontal active mode
 
 .wrap                      ; Wrap execution back to start
@@ -35,17 +35,16 @@ static inline void rgb_program_init(PIO pio, uint sm, uint offset, uint pin) {
 
     // Map the state machine's SET and OUT pin groups to 4 consecutive pins
     // The `pin` parameter is the lowest in the range
-    sm_config_set_set_pins(&c, pin, 4);
-    sm_config_set_out_pins(&c, pin, 4);
+    sm_config_set_set_pins(&c, pin, 8);
+    sm_config_set_out_pins(&c, pin, 8);
 
     // Initialize the PIO-controlled output pins
-    pio_gpio_init(pio, pin);
-    pio_gpio_init(pio, pin + 1);
-    pio_gpio_init(pio, pin + 2);
-    pio_gpio_init(pio, pin + 3);
+    for(int i=0; i<8; i++) {
+        pio_gpio_init(pio, pin + i);
+    }
     
     // Configure the 4 consecutive pins as outputs for the PIO state machine
-    pio_sm_set_consecutive_pindirs(pio, sm, pin, 4, true);
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 8, true);
 
     // Load the configuration and set the initial execution point for the program
     pio_sm_init(pio, sm, offset, &c);

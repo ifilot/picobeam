@@ -36,21 +36,20 @@
 #define CHARHEIGHT      12      // character width
 #define CHARWIDTH        8      // character height
 
-#define LATCH_PIN 2         // GPIO for latch signal
-#define DATA_BASE_PIN 8     // First data pin
+#define LATCH_PIN        2      // GPIO for latch signal
+#define HSYNC_PIN       12
+#define VSYNC_PIN       13
+#define COLOR_PIN       14
+#define DATA_BASE_PIN    4        // First data pin
 
 // VGA timing constants
 #define H_ACTIVE 655   // (active + frontporch - 1) - one cycle delay for mov
 #define V_ACTIVE 479   // (active - 1)
-#define RGB_ACTIVE 319 // (horizontal active)/2 - 1
-// #define RGB_ACTIVE 639 // change to this if 1 pixel/byte
+//#define RGB_ACTIVE 319 // (horizontal active)/2 - 1
+#define RGB_ACTIVE 639 // change to this if 1 pixel/byte
 
 // Length of the pixel array, and number of DMA transfers
-#define TXCOUNT 153600 // Total pixels/2 (since we have 2 pixels per byte)
-
-// Give the I/O pins that we're using some names that make sense - usable in
-// main()
-enum vga_pins {HSYNC=16, VSYNC, LO_GRN, HI_GRN, BLUE_PIN, RED_PIN} ;
+#define TXCOUNT (SCREENWIDTH*SCREENHEIGHT) // Total pixels/2 (since we have 2 pixels per byte)
 
 // We can only produce 16 (4-bit) colors, so let's give them readable names -
 // usable in main()

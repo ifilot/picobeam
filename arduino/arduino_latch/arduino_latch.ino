@@ -1,8 +1,8 @@
 // Define delays for different types of operations (in microseconds)
-static const uint8_t chardelay = 150;   // Delay for sending simple characters
-static const uint8_t longdelay = 2000;  // Delay for long instructions (e.g., screen clear, beep)
-static const uint8_t cmdbytedelay = 150;
-static const uint8_t pixdelay = 200;    // Delay for sending pixel data
+static const uint8_t chardelay = 250;   // Delay for sending simple characters
+static const uint8_t longdelay = 4000;  // Delay for long instructions (e.g., screen clear, beep)
+static const uint8_t cmdbytedelay = 250;
+static const uint8_t pixdelay = 400;    // Delay for sending pixel data
 
 // Screen dimensions
 #define SCREEN_WIDTH  640
@@ -81,10 +81,9 @@ void draw_text() {
 
 // Function to generate a 32-bit pixel command
 uint32_t generate_pixel_command(uint16_t x, uint16_t y, uint8_t color) {
-    return ((uint32_t)(color & 0x0F) << 28) |   // 4-bit color at bits 31-28
-           ((uint32_t)(y & 0x3FF) << 18)    |   // 10-bit Y position at bits 27-18
-           ((uint32_t)(x & 0x3FF) << 8)     |   // 10-bit X position at bits 17-8
-           ((uint32_t)0xB0 & 0xFF);             // 8-bit control byte at bits 7-0
+    return ((uint32_t)(color & 0xFF) << 24) |   // 8-bit color
+           ((uint32_t)(y & 0x3FF) << 14)    |   // 10-bit Y position
+           ((uint32_t)(x & 0x3FF) << 4);        // 10-bit X position
 }
 
 // Function to send a 32-bit pixel instruction over parallel port
@@ -92,7 +91,7 @@ void send_pixelword(uint32_t instruction) {
   send_char(instruction, cmdbytedelay);         // Send least significant byte
   send_char((instruction >> 8), cmdbytedelay);  // Send next byte
   send_char((instruction >> 16), cmdbytedelay); // Send next byte
-  send_char((instruction >> 24), pixdelay);  // Send most significant byte
+  send_char((instruction >> 24), pixdelay);     // Send most significant byte
 }
 
 // Function to draw a filled square at (x,y) with a given size and color
@@ -127,8 +126,9 @@ void draw_line(uint16_t x, uint16_t y, uint16_t size, uint8_t color) {
 
 // Function to draw a graphical test pattern
 void draw_graph() {
-  send_char(0xFF, longdelay); // Clear screen
+  send_char(0xFF, longdelay); // clear screen 
   send_char(0xA0, longdelay); // Beep
+  send_char(0xB0, longdelay); // pixel mode
   
   const uint16_t sz = 5; // Square size
 
@@ -139,18 +139,22 @@ void draw_graph() {
   draw_square(SCREEN_WIDTH - sz - 1, SCREEN_HEIGHT - sz - 1, sz, 0x0F);
 
   // Draw color test bars
-  for(uint8_t i = 1; i <= 16; i++) {
-    draw_square(50 + i * 15, 50, 10, i);
+  for(uint8_t j = 0; j < 2; j++) {
+    for(uint8_t i = 0; i < 2; i++) {
+      draw_square(50 + i * 15, 50 + j * 15, 5, j*16 + i);
+    }
   }
 
+  send_pixelword(0xAA55AA55);
+  _delay_ms(1);
   handle_serial();
 }
 
 // Main loop function - alternates between text and graphical tests
 void loop() {
-  draw_text();   // Draw text pattern
-  _delay_ms(3000); 
+  //draw_text();   // Draw text pattern
+  //_delay_ms(3000); 
 
   draw_graph();  // Draw graphical pattern
-  _delay_ms(5000);
+  _delay_ms(1000);
 }

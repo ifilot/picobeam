@@ -13,13 +13,17 @@ void parse_input(char ch) {
     static uint8_t mode = MODE_TEXT;
 
     if(flag_pixel) {
-        pixelword &= ~(0xFF << nrbytes * 8);
         pixelword |= ((uint32_t)ch << (nrbytes * 8));
         nrbytes++;
 
         if(nrbytes == 4) {
-            draw_pixel_from_word(pixelword);
-            flag_pixel = false;
+            if(pixelword != 0xAA55AA55) {
+                draw_pixel_from_word(pixelword);
+                pixelword = 0;
+                nrbytes = 0;
+            } else {
+                flag_pixel = false;
+            }
             pixelword = 0;
             nrbytes = 0;
         }
@@ -28,11 +32,6 @@ void parse_input(char ch) {
 
     if(ch >= 0x80) {  // check for control bytes
         switch(ch) {
-            case 0xB0:
-                flag_pixel = true;
-                pixelword = ch;
-                nrbytes++;
-            break;
             case 0x80:
                 fg_color = BLACK;
             break;
@@ -132,11 +131,17 @@ void parse_input(char ch) {
             case 0xA0:
                 flag_beep = true;
             break;
+            case 0xB0:
+                flag_pixel = true;
+                pixelword = 0;
+                nrbytes = 0;
+            break;
             case 0xFF:
                 clear_screen();
                 posy = 0;
                 posx = 0;
                 flag_beep = false;
+                flag_pixel = false;
             break;
         }
     } else {

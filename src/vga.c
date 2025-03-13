@@ -48,9 +48,9 @@ void init_screen() {
     // function in the pio file, then all information about how to use/setup
     // that state machine is consolidated in one place. Here in the C, we then
     // just import and use it.
-    hsync_program_init(pio, hsync_sm, hsync_offset, HSYNC);
-    vsync_program_init(pio, vsync_sm, vsync_offset, VSYNC);
-    rgb_program_init(pio, rgb_sm, rgb_offset, LO_GRN);
+    hsync_program_init(pio, hsync_sm, hsync_offset, HSYNC_PIN);
+    vsync_program_init(pio, vsync_sm, vsync_offset, VSYNC_PIN);
+    rgb_program_init(pio, rgb_sm, rgb_offset, COLOR_PIN);
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     // ============================== PIO DMA Channels =================================================
@@ -143,15 +143,16 @@ void draw_pixel(short x, short y, char color) {
     if((x > 639) | (x < 0) | (y > 479) | (y < 0) ) return;
 
     // compute the pixel index in the VGA data array
-    int pixel = ((640 * y) + x);
+    //int pixel = ((640 * y) + x);
 
     // determine if the pixel is stored in the upper or lower 4 bits of the byte
-    if (pixel & 1) {    // odd pixel (upper 4 bits)
-        vga_data_array[pixel >> 1] = (vga_data_array[pixel >> 1] & TOPMASK) | (color << 4);
-    }
-    else {              // even pixel (lower 4 bits)
-        vga_data_array[pixel >> 1] = (vga_data_array[pixel >> 1] & BOTTOMMASK) | (color);
-    }
+    // if (pixel & 1) {    // odd pixel (upper 4 bits)
+    //     vga_data_array[pixel >> 1] = (vga_data_array[pixel >> 1] & TOPMASK) | (color << 4);
+    // }
+    // else {              // even pixel (lower 4 bits)
+    //     vga_data_array[pixel >> 1] = (vga_data_array[pixel >> 1] & BOTTOMMASK) | (color);
+    // }
+    vga_data_array[(640 * y) + x] = color;
 }
 
 /**
@@ -193,24 +194,25 @@ void draw_character(short x, short y, unsigned char c, char color, char bg) {
 
 void draw_pixel_from_word(uint32_t pixelword) {
     // Extract X, Y, and color from pixelword (direct bit manipulation)
-    uint16_t x = (pixelword >> 8) & 0x3FF;   // X position (10 bits)
-    uint16_t y = (pixelword >> 18) & 0x3FF;  // Y position (10 bits)
-    uint8_t color = (pixelword >> 28) & 0x0F; // Color (4 bits)
+    uint16_t x = (pixelword >> 4) & 0x3FF;   // X position (10 bits)
+    uint16_t y = (pixelword >> 14) & 0x3FF;  // Y position (10 bits)
+    uint8_t color = (pixelword >> 24) & 0xFF; // Color (8 bits)
 
     // Bounds check (fast conditional with bitwise OR)
     if ((x >= SCREENWIDTH) | (y >= SCREENHEIGHT)) return;
 
     // Compute pixel index in the VGA data array
-    int pixel = (SCREENWIDTH * y) + x;
+    //int pixel = (SCREENWIDTH * y) + x;
     
     // Update the VGA array (avoiding redundant shifts)
-    uint8_t *vga_byte = &vga_data_array[pixel >> 1];
+    vga_data_array[(640 * y) + x] = color;
 
-    if (pixel & 1) {  
-        // Odd pixel → Upper 4 bits
-        *vga_byte = (*vga_byte & TOPMASK) | (color << 4);
-    } else {  
-        // Even pixel → Lower 4 bits
-        *vga_byte = (*vga_byte & BOTTOMMASK) | color;
-    }
+    // if (pixel & 1) {  
+    //     // Odd pixel → Upper 4 bits
+    //     *vga_byte = (*vga_byte & TOPMASK) | (color << 4);
+    // } else {  
+    //     // Even pixel → Lower 4 bits
+    //     *vga_byte = (*vga_byte & BOTTOMMASK) | color;
+    // }
+    
 }
