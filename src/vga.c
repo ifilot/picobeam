@@ -15,6 +15,15 @@ char *address_pointer = &vga_data_array[0];
 bool flag_beep = false;
 bool flag_beeping = false;
 
+short cposx = 0;
+short cposy = 0;
+
+short pposx = 0;
+short pposy = 0;
+
+char fg_color = 0xFF;
+char bg_color = 0x00;
+
 /**
  * @brief Initialize the screen
  * 
@@ -126,6 +135,10 @@ void init_screen() {
  */
 void clear_screen() {
     memset(vga_data_array, 0x00, TXCOUNT);
+    pposy = 0;
+    pposx = 0;
+    cposy = 0;
+    cposx = 0;
 }
 
 /**
@@ -142,17 +155,28 @@ void clear_screen() {
 void draw_pixel(short x, short y, char color) {
     if((x > 639) | (x < 0) | (y > 479) | (y < 0) ) return;
 
-    // compute the pixel index in the VGA data array
-    //int pixel = ((640 * y) + x);
-
-    // determine if the pixel is stored in the upper or lower 4 bits of the byte
-    // if (pixel & 1) {    // odd pixel (upper 4 bits)
-    //     vga_data_array[pixel >> 1] = (vga_data_array[pixel >> 1] & TOPMASK) | (color << 4);
-    // }
-    // else {              // even pixel (lower 4 bits)
-    //     vga_data_array[pixel >> 1] = (vga_data_array[pixel >> 1] & BOTTOMMASK) | (color);
-    // }
     vga_data_array[(640 * y) + x] = color;
+}
+
+/**
+ * @brief Draw a single pixel to thes creen buffer
+ * 
+ * @param x         Pixel x-coordinate
+ * @param y         Pixel y-coordinate
+ * @param color     Pixel color
+ * 
+ * 
+ * This function modifies the contents of the VGA data array, which is
+ * automatically transferred to the screen via a DMA channel.
+ */
+void draw_pixel_increment(char color) {
+    vga_data_array[(640 * pposy) + pposx] = color;
+
+    pposx++;
+    if(pposx == SCREENWIDTH) {
+        pposx = 0;
+        pposy++;
+    }
 }
 
 /**
@@ -192,27 +216,41 @@ void draw_character(short x, short y, unsigned char c, char color, char bg) {
     }
 }
 
-void draw_pixel_from_word(uint32_t pixelword) {
+void process_pixelword(uint16_t pixelword) {
     // Extract X, Y, and color from pixelword (direct bit manipulation)
-    uint16_t x = (pixelword >> 4) & 0x3FF;   // X position (10 bits)
-    uint16_t y = (pixelword >> 14) & 0x3FF;  // Y position (10 bits)
-    uint8_t color = (pixelword >> 24) & 0xFF; // Color (8 bits)
+    uint8_t cmd = (pixelword >> 8) & 0xFC; // extract upper six bits
+    uint16_t inst = pixelword & 0x03FF;
 
-    // Bounds check (fast conditional with bitwise OR)
-    if ((x >= SCREENWIDTH) | (y >= SCREENHEIGHT)) return;
+    switch(cmd) {
+        case 0xB0:      // draw pixel
+            draw_pixel_increment(inst);
+        break;
+        case 0xB4:      // set x
+            pposx = inst;
+        break;
+        case 0xB8:      // set y
+            pposy = inst;
+        break;
+    }
+}
 
-    // Compute pixel index in the VGA data array
-    //int pixel = (SCREENWIDTH * y) + x;
-    
-    // Update the VGA array (avoiding redundant shifts)
-    vga_data_array[(640 * y) + x] = color;
+void process_charword(uint16_t pixelword) {
+    // Extract X, Y, and color from pixelword (direct bit manipulation)
+    uint8_t cmd = (pixelword >> 8) & 0xFC; // extract upper six bits
+    uint16_t inst = pixelword & 0x03FF;
 
-    // if (pixel & 1) {  
-    //     // Odd pixel → Upper 4 bits
-    //     *vga_byte = (*vga_byte & TOPMASK) | (color << 4);
-    // } else {  
-    //     // Even pixel → Lower 4 bits
-    //     *vga_byte = (*vga_byte & BOTTOMMASK) | color;
-    // }
-    
+    switch(cmd) {
+        case 0xC0:      // set foreground color
+            fg_color = inst;
+        break;
+        case 0xC4:      // set x
+            pposx = inst;
+        break;
+        case 0xC8:      // set y
+            pposy = inst;
+        break;
+        case 0xCC:      // set background color
+            bg_color = inst;
+        break;
+    }
 }

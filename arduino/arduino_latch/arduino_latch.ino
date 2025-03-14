@@ -2,7 +2,7 @@
 static const uint8_t chardelay = 250;   // Delay for sending simple characters
 static const uint8_t longdelay = 4000;  // Delay for long instructions (e.g., screen clear, beep)
 static const uint8_t cmdbytedelay = 250;
-static const uint8_t pixdelay = 400;    // Delay for sending pixel data
+static const uint8_t pixdelay = 150;    // Delay for sending pixel data
 
 // Screen dimensions
 #define SCREEN_WIDTH  640
@@ -56,23 +56,40 @@ void draw_text() {
 
   send_char(0xFF, longdelay); // Clear screen
   send_char(0xA0, longdelay); // Beep
-  send_char(0x90, chardelay); // Set background to black
 
-  // Draw characters in different foreground colors (0x81-0x8F)
-  for(uint8_t i = 0x81; i <= 0x8F; i++) {
-    send_char(i, chardelay);
-    for(char val = ' '; val <= '~'; val++) { // ASCII printable range
+  uint8_t col = 0;
+
+  send_char(0xCC, chardelay);   // set background color
+  send_char(0x00, chardelay);   // set background color
+  for(int i=0; i<4; i++) {
+    for(char val = ' '; val <= '~'; val++) {
+      send_char(0xC0, chardelay);   // set foreground color
+      send_char(col++, chardelay);   // set foreground color
       send_char(val, chardelay);
+      if(col == 0) {
+        break;
+      }
+    }
+    if(col == 0) {
+      break;
     }
   }
+  send_char('\n', chardelay);
 
-  handle_serial();
-
-  send_char(0x80, chardelay); // Set foreground to black
-  for(uint8_t i = 0x91; i <= 0x9F; i++) {
-    send_char(i, chardelay);
+  col = 0;
+  send_char(0xC0, chardelay);   // set foreground color
+  send_char(0x00, chardelay);   // set foreground colo
+  for(int i=0; i<4; i++) {
     for(char val = ' '; val <= '~'; val++) {
+      send_char(0xCC, chardelay);       // set background color
+      send_char(col++, chardelay);   // set background color
       send_char(val, chardelay);
+      if(col == 0) {
+        break;
+      }
+    }
+    if(col == 0) {
+      break;
     }
   }
 
@@ -86,75 +103,67 @@ uint32_t generate_pixel_command(uint16_t x, uint16_t y, uint8_t color) {
            ((uint32_t)(x & 0x3FF) << 4);        // 10-bit X position
 }
 
-// Function to send a 32-bit pixel instruction over parallel port
-void send_pixelword(uint32_t instruction) {
-  send_char(instruction, cmdbytedelay);         // Send least significant byte
-  send_char((instruction >> 8), cmdbytedelay);  // Send next byte
-  send_char((instruction >> 16), cmdbytedelay); // Send next byte
-  send_char((instruction >> 24), pixdelay);     // Send most significant byte
+void cmd_set_x(uint16_t x) {
+    uint8_t highbyte = 0xB4 | ((x >> 8) & 3);
+    uint8_t lowbyte = x & 0xFF;
+    send_char(highbyte, pixdelay);
+    send_char(lowbyte, pixdelay);
+}
+
+void cmd_set_y(uint16_t y) {
+    uint8_t highbyte = 0xB8 | ((y >> 8) & 3);
+    uint8_t lowbyte = y & 0xFF;
+    send_char(highbyte, pixdelay);
+    send_char(lowbyte, pixdelay);
+}
+
+void cmd_set_px(uint8_t color) {
+    send_char(0xB0, pixdelay);
+    send_char(color, pixdelay);
 }
 
 // Function to draw a filled square at (x,y) with a given size and color
 void draw_square(uint16_t x, uint16_t y, uint16_t size, uint8_t color) {
-    // Ensure the square stays within bounds
-    if (x + size > SCREEN_WIDTH) size = SCREEN_WIDTH - x;
-    if (y + size > SCREEN_HEIGHT) size = SCREEN_HEIGHT - y;
-
     // Loop through each pixel in the square
     for (uint16_t i = 0; i < size; i++) {
+        cmd_set_y(y+i);
+        cmd_set_x(x);
         for (uint16_t j = 0; j < size; j++) {
-            uint32_t instruction = generate_pixel_command(x + i, y + j, color);
-            send_pixelword(instruction);
-            handle_serial(); // Process serial communication during drawing
+            cmd_set_px(color);
         }
-    }
-}
-
-// Function to draw a horizontal line at (x,y) with a given length and color
-void draw_line(uint16_t x, uint16_t y, uint16_t size, uint8_t color) {
-    // Ensure the line stays within bounds
-    if (x + size > SCREEN_WIDTH) size = SCREEN_WIDTH - x;
-    if (y >= SCREEN_HEIGHT) return; // Ensure y is within bounds
-
-    // Loop to draw the line
-    for (uint16_t i = 0; i < size; i++) {
-        uint32_t instruction = generate_pixel_command(x + i, y, color);
-        send_pixelword(instruction);
-        handle_serial(); // Process serial communication during drawing
     }
 }
 
 // Function to draw a graphical test pattern
 void draw_graph() {
   send_char(0xFF, longdelay); // clear screen 
-  send_char(0xA0, longdelay); // Beep
-  send_char(0xB0, longdelay); // pixel mode
-  
+  _delay_ms(1);
+  //send_char(0xA0, longdelay); // Beep
+
   const uint16_t sz = 5; // Square size
 
   // Draw corner squares
-  draw_square(0, 0, sz, 0x0F);
-  draw_square(0, SCREEN_HEIGHT - sz - 1, sz, 0x0F);
-  draw_square(SCREEN_WIDTH - sz - 1, 0, sz, 0x0F);
-  draw_square(SCREEN_WIDTH - sz - 1, SCREEN_HEIGHT - sz - 1, sz, 0x0F);
+  draw_square(0, 0, sz, 0xFF);
+  draw_square(0, SCREEN_HEIGHT - sz - 1, sz, 0xFF);
+  draw_square(SCREEN_WIDTH - sz - 1, 0, sz, 0xFF);
+  draw_square(SCREEN_WIDTH - sz - 1, SCREEN_HEIGHT - sz - 1, sz, 0xFF);
 
   // Draw color test bars
-  for(uint8_t j = 0; j < 2; j++) {
-    for(uint8_t i = 0; i < 2; i++) {
-      draw_square(50 + i * 15, 50 + j * 15, 5, j*16 + i);
+  for(uint8_t j = 0; j < 16; j++) {
+    for(uint8_t i = 0; i < 16; i++) {
+      draw_square(50 + i * 15, 50 + j * 15, 5, j*16+i);
     }
   }
 
-  send_pixelword(0xAA55AA55);
   _delay_ms(1);
   handle_serial();
 }
 
 // Main loop function - alternates between text and graphical tests
 void loop() {
-  //draw_text();   // Draw text pattern
-  //_delay_ms(3000); 
+  draw_text();   // Draw text pattern
+  _delay_ms(3000); 
 
   draw_graph();  // Draw graphical pattern
-  _delay_ms(1000);
+  _delay_ms(3000);
 }

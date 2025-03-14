@@ -51,13 +51,6 @@
 // Length of the pixel array, and number of DMA transfers
 #define TXCOUNT (SCREENWIDTH*SCREENHEIGHT) // Total pixels/2 (since we have 2 pixels per byte)
 
-// We can only produce 16 (4-bit) colors, so let's give them readable names -
-// usable in main()
-enum colors {BLACK, DARK_GREEN, MED_GREEN, GREEN,
-             DARK_BLUE, BLUE, LIGHT_BLUE, CYAN,
-             RED, DARK_ORANGE, ORANGE, YELLOW, 
-             MAGENTA, PINK, LIGHT_PINK, WHITE} ;
-
 // Bit masks for drawPixel routine
 #define TOPMASK 0b00001111
 #define BOTTOMMASK 0b11110000
@@ -70,6 +63,14 @@ enum colors {BLACK, DARK_GREEN, MED_GREEN, GREEN,
 
 extern bool flag_beep;
 extern bool flag_beeping;
+
+extern short cposx;
+extern short cposy;
+extern short pposx;
+extern short pposy;
+
+extern char fg_color;
+extern char bg_color;
 
 /**
  * @brief Initialize the screen
@@ -107,6 +108,8 @@ void draw_pixel(short x, short y, char color) ;
  */
 void draw_character(short x, short y, unsigned char c, char color, char bg) ;
 
-void draw_pixel_from_word(uint32_t pixelword);
+void process_pixelword(uint16_t pixelword);
+
+void process_charword(uint16_t pixelword);
 
 #endif // _VGA_H
