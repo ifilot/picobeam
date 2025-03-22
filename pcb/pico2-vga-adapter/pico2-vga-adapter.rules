@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 19)
+    (start_pass_no 448)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -87,15 +87,15 @@
     )
   )
   (class "kicad_default"
-    +5V +3V3 GND +1V1 "/VREG_LX" /XIN /XOUT "unconnected-(J1-ID-Pad4)"
-    "/~{USB_BOOT}" "/GPIO29_ADC3" "/GPIO28_ADC2" "/GPIO27_ADC1" "/GPIO26_ADC0" /GPIO25 /GPIO24 /GPIO23
-    /GPIO22 /RUN /SWD /SWCLK "/QSPI_SS" "/QSPI_SD3" "/QSPI_SCLK" "/QSPI_SD0"
+    +5V GND +3V3 +1V1 "/VREG_LX" /XIN /XOUT "unconnected-(J1-ID-Pad4)"
+    "/~{USB_BOOT}" /RUN /SWD /SWCLK "/QSPI_SS" "/QSPI_SD3" "/QSPI_SCLK" "/QSPI_SD0"
     "/QSPI_SD2" "/QSPI_SD1" "Net-(C4-Pad1)" "/VREG_AVDD" "Net-(U1-USB_DP)" "Net-(U1-USB_DM)" "/FLASH_SS" D7
     D0 D6 D5 LATCH D1 D3 D2 D4
     TX RX LD0 LD2 LD4 LD6 "L_LATCH" "L_RX"
     LD1 LD3 LD5 LD7 R "COL_R2" "COL_R1" "COL_R0"
     G "COL_G2" "COL_G1" "COL_G0" B "COL_B1" "COL_B0" VSYNC
     AUDIO HSYNC "unconnected-(J2-Pad12)" "unconnected-(J2-Pad9)" "unconnected-(J2-Pad15)" "unconnected-(J2-Pad11)" "unconnected-(J2-Pad4)" "Net-(R4-Pad1)"
+    "unconnected-(U1-GPIO29_ADC3-Pad43)" "unconnected-(U1-GPIO27_ADC1-Pad41)" "unconnected-(U1-GPIO22-Pad34)" "unconnected-(U1-GPIO26_ADC0-Pad40)" "unconnected-(U1-GPIO25-Pad37)" "unconnected-(U1-GPIO28_ADC2-Pad42)" "unconnected-(U1-GPIO24-Pad36)" "unconnected-(U1-GPIO23-Pad35)"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule

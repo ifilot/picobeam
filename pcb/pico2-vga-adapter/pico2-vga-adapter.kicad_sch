@@ -5,12 +5,175 @@
 	(uuid "94683f5c-9cd9-448e-be96-9792537b5cb8")
 	(paper "A3")
 	(title_block
-		(title "RP2350A QFN-60 Minimal Design Example")
+		(title "PICO2-VGA-ADAPTER")
 		(date "2024-07-01")
 		(rev "REV3")
 		(company "Raspberry Pi Ltd")
 	)
 	(lib_symbols
+		(symbol "Connector:Conn_01x02_Pin"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x02_Pin"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x02, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_Pin_1_1"
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Conn_01x04_Pin"
 			(pin_names
 				(offset 1.016)
@@ -5951,7 +6114,7 @@
 		(uuid "08c9693c-9131-479d-9d78-b2e701647d86")
 	)
 	(junction
-		(at 307.34 199.39)
+		(at 275.59 170.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0a52767f-e9f7-4840-a44b-5e08c51f4cf6")
@@ -6083,7 +6246,7 @@
 		(uuid "790cb674-4b8c-49b3-adee-247f61cb8d94")
 	)
 	(junction
-		(at 307.34 194.31)
+		(at 275.59 165.1)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7b7262b4-6cac-4024-bcc2-6dfcc1773f6d")
@@ -6221,7 +6384,7 @@
 		(uuid "f1b82a39-7aba-4650-a7b8-0112610fab01")
 	)
 	(junction
-		(at 307.34 223.52)
+		(at 243.84 165.1)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f42f3e59-9be7-4faa-b973-b7dfd90db434")
@@ -6356,7 +6519,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 194.31) (xy 311.15 194.31)
+			(xy 275.59 165.1) (xy 279.4 165.1)
 		)
 		(stroke
 			(width 0)
@@ -6496,7 +6659,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 92.71) (xy 48.26 95.25)
+			(xy 48.26 92.71) (xy 48.26 100.33)
 		)
 		(stroke
 			(width 0)
@@ -6576,7 +6739,7 @@
 	)
 	(wire
 		(pts
-			(xy 303.53 194.31) (xy 307.34 194.31)
+			(xy 271.78 165.1) (xy 275.59 165.1)
 		)
 		(stroke
 			(width 0)
@@ -6786,13 +6949,23 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 199.39) (xy 307.34 204.47)
+			(xy 275.59 170.18) (xy 275.59 175.26)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "469c3a58-bf16-4c5f-9442-4563c32b8081")
+	)
+	(wire
+		(pts
+			(xy 48.26 102.87) (xy 43.18 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46d8f6fe-7010-4f6e-8fd8-a9ca4b497941")
 	)
 	(wire
 		(pts
@@ -7196,7 +7369,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 220.98) (xy 307.34 223.52)
+			(xy 243.84 162.56) (xy 243.84 165.1)
 		)
 		(stroke
 			(width 0)
@@ -7226,7 +7399,7 @@
 	)
 	(wire
 		(pts
-			(xy 303.53 223.52) (xy 307.34 223.52)
+			(xy 240.03 165.1) (xy 243.84 165.1)
 		)
 		(stroke
 			(width 0)
@@ -7466,7 +7639,7 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 105.41) (xy 48.26 107.95)
+			(xy 48.26 102.87) (xy 48.26 107.95)
 		)
 		(stroke
 			(width 0)
@@ -7666,7 +7839,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 194.31) (xy 307.34 199.39)
+			(xy 275.59 165.1) (xy 275.59 170.18)
 		)
 		(stroke
 			(width 0)
@@ -7716,7 +7889,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 199.39) (xy 303.53 199.39)
+			(xy 275.59 170.18) (xy 271.78 170.18)
 		)
 		(stroke
 			(width 0)
@@ -7776,7 +7949,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 228.6) (xy 303.53 228.6)
+			(xy 243.84 170.18) (xy 240.03 170.18)
 		)
 		(stroke
 			(width 0)
@@ -7826,7 +7999,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 223.52) (xy 311.15 223.52)
+			(xy 243.84 165.1) (xy 247.65 165.1)
 		)
 		(stroke
 			(width 0)
@@ -8036,7 +8209,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 191.77) (xy 307.34 194.31)
+			(xy 275.59 162.56) (xy 275.59 165.1)
 		)
 		(stroke
 			(width 0)
@@ -8196,7 +8369,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 204.47) (xy 303.53 204.47)
+			(xy 275.59 175.26) (xy 271.78 175.26)
 		)
 		(stroke
 			(width 0)
@@ -8206,7 +8379,7 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 223.52) (xy 307.34 228.6)
+			(xy 243.84 165.1) (xy 243.84 170.18)
 		)
 		(stroke
 			(width 0)
@@ -8233,6 +8406,16 @@
 			(type default)
 		)
 		(uuid "fdf2f6b4-efda-45ef-9cbb-4643ae1a7696")
+	)
+	(wire
+		(pts
+			(xy 48.26 100.33) (xy 43.18 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "feb9f39b-70da-44de-a298-685f7fbc5a11")
 	)
 	(label "XIN"
 		(at 73.66 116.84 0)
@@ -8746,7 +8929,7 @@
 	)
 	(global_label "COL_B0"
 		(shape input)
-		(at 295.91 228.6 180)
+		(at 232.41 170.18 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8756,7 +8939,7 @@
 		)
 		(uuid "1f79c43b-0593-4a2e-ba53-1a4fd8c3d5cd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 286.5033 228.6 0)
+			(at 223.0033 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9428,7 +9611,7 @@
 	)
 	(global_label "G"
 		(shape input)
-		(at 311.15 194.31 0)
+		(at 279.4 165.1 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9438,7 +9621,7 @@
 		)
 		(uuid "a2130833-10bd-4179-9465-8c8bfca11dd8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 314.751 194.31 0)
+			(at 283.001 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9494,7 +9677,7 @@
 	)
 	(global_label "B"
 		(shape input)
-		(at 311.15 223.52 0)
+		(at 247.65 165.1 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9504,7 +9687,7 @@
 		)
 		(uuid "af2ec150-d5e9-45a3-9025-3cfe474d07dd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 314.751 223.52 0)
+			(at 251.251 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9736,7 +9919,7 @@
 	)
 	(global_label "COL_G2"
 		(shape input)
-		(at 295.91 194.31 180)
+		(at 264.16 165.1 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9746,7 +9929,7 @@
 		)
 		(uuid "e28b1049-8618-45fd-9618-f279b24d4b55")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 286.5033 194.31 0)
+			(at 254.7533 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9758,7 +9941,7 @@
 	)
 	(global_label "COL_G0"
 		(shape input)
-		(at 295.91 204.47 180)
+		(at 264.16 175.26 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9768,7 +9951,7 @@
 		)
 		(uuid "e3603593-6aad-4a56-a38f-ae46f5740fe5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 286.5033 204.47 0)
+			(at 254.7533 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9824,7 +10007,7 @@
 	)
 	(global_label "COL_G1"
 		(shape input)
-		(at 295.91 199.39 180)
+		(at 264.16 170.18 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9834,7 +10017,7 @@
 		)
 		(uuid "e5cdd78a-59d3-4e8d-996c-356ffcd9d060")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 286.5033 199.39 0)
+			(at 254.7533 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9978,7 +10161,7 @@
 	)
 	(global_label "COL_B1"
 		(shape input)
-		(at 295.91 223.52 180)
+		(at 232.41 165.1 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9988,7 +10171,7 @@
 		)
 		(uuid "f3d02a7d-35a8-4cdf-b2d6-5033dfe87ffa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 286.5033 223.52 0)
+			(at 223.0033 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10712,7 +10895,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C25100"
 			(at 166.37 64.77 0)
 			(effects
 				(font
@@ -10787,7 +10970,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C25100"
 			(at 166.37 73.66 0)
 			(effects
 				(font
@@ -12521,6 +12704,81 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 275.59 151.13 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "09565b60-0811-4bee-a6ab-515e0feab67e")
+		(property "Reference" "R22"
+			(at 273.304 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33"
+			(at 275.59 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 277.368 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 275.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 275.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23140"
+			(at 275.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f927933f-e7ad-492a-b9ce-ef91bf060271")
+		)
+		(pin "1"
+			(uuid "525da6c1-3353-4aa8-aa45-fd33fb5fe802")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 87.63 35.56 0)
 		(unit 1)
@@ -12599,81 +12857,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 307.34 187.96 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1148852f-56b9-44a9-874d-a90500c9ef7a")
-		(property "Reference" "R17"
-			(at 305.054 187.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "150"
-			(at 307.34 187.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 309.118 187.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 307.34 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 307.34 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 307.34 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6ab8bd71-53f3-4e11-8a61-da241f22942a")
-		)
-		(pin "1"
-			(uuid "c7d1049d-7969-4a2c-b123-0e0780f00bb4")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 299.72 170.18 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12689,7 +12872,7 @@
 				)
 			)
 		)
-		(property "Value" "560"
+		(property "Value" "330"
 			(at 299.72 170.18 90)
 			(effects
 				(font
@@ -12697,7 +12880,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 299.72 171.958 90)
 			(effects
 				(font
@@ -12724,7 +12907,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C23138"
 			(at 299.72 170.18 0)
 			(effects
 				(font
@@ -12749,7 +12932,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 299.72 204.47 90)
+		(at 267.97 175.26 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12757,23 +12940,23 @@
 		(dnp no)
 		(uuid "149d7698-056e-4ace-a0c7-177e24f7b61e")
 		(property "Reference" "R16"
-			(at 299.72 202.438 90)
+			(at 267.97 173.228 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "1100"
-			(at 299.72 204.47 90)
+		(property "Value" "680"
+			(at 267.97 175.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 299.72 206.248 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 267.97 177.038 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12782,7 +12965,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 299.72 204.47 0)
+			(at 267.97 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12791,7 +12974,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 299.72 204.47 0)
+			(at 267.97 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12799,8 +12982,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 299.72 204.47 0)
+		(property "LCSC" "C23228"
+			(at 267.97 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13493,71 +13676,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 307.34 154.94 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "28ea74a4-53b8-4f2d-8af2-a5f5f979a873")
-		(property "Reference" "#PWR055"
-			(at 307.34 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 307.213 150.5458 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 307.34 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 307.34 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 307.34 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "25d78755-a100-4aa0-92b7-dad9a20fd143")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "#PWR055")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:Conn_01x04_Pin")
 		(at 295.91 133.35 0)
 		(unit 1)
@@ -13705,81 +13823,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 307.34 158.75 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3006cc50-ef40-44f0-ac2d-7487a4b5e794")
-		(property "Reference" "R13"
-			(at 305.054 158.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "150"
-			(at 307.34 158.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 309.118 158.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 307.34 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 307.34 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 307.34 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "5ac77199-4269-44ee-916a-08060000ed9c")
-		)
-		(pin "1"
-			(uuid "662bbb84-9b3f-4ba3-a7f4-8e2fd2b2944b")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "R13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 54.61 134.62 0)
 		(unit 1)
@@ -13805,7 +13848,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_Vertical_Wuerth_434133025816"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 54.61 129.54 0)
 			(effects
 				(font
@@ -14197,6 +14240,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 38.1 100.33 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d78e15c-666f-4457-bc05-907641f1916e")
+		(property "Reference" "J5"
+			(at 38.735 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~{FLASH}"
+			(at 38.735 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical"
+			(at 38.1 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 38.1 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 38.1 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "42c673ef-2420-4442-8d87-d3362f8e5c1c")
+		)
+		(pin "2"
+			(uuid "d533605d-4845-45fb-ae72-b9b3374b896c")
+		)
+		(instances
+			(project ""
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 360.68 240.03 270)
 		(unit 1)
@@ -14382,7 +14493,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C2655473"
 			(at 359.41 119.38 0)
 			(effects
 				(font
@@ -14522,7 +14633,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C25105"
 			(at 63.5 59.69 0)
 			(effects
 				(font
@@ -14670,7 +14781,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 32.131 79.1722 0)
 			(effects
 				(font
@@ -14706,7 +14817,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C1523"
 			(at 29.21 77.47 0)
 			(effects
 				(font
@@ -14861,6 +14972,81 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 243.84 158.75 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "56488345-24b6-4f05-8783-b298e771ff69")
+		(property "Reference" "R23"
+			(at 241.554 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47"
+			(at 243.84 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 245.618 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 243.84 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 243.84 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23182"
+			(at 243.84 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "1603b093-061b-426a-93f4-ebd0cea67d85")
+		)
+		(pin "1"
+			(uuid "5844de21-8c5b-4f51-a679-30f4eb124ddd")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 64.77 43.18 0)
 		(unit 1)
@@ -14920,6 +15106,71 @@
 			(project "pico2-vga-adapter"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "#PWR018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 275.59 147.32 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5b5b0522-4b37-4eba-80d8-da69f3905ac4")
+		(property "Reference" "#PWR061"
+			(at 275.59 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 275.463 142.9258 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 275.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 275.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 275.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6e289048-43ef-4678-8741-af7e87a94aee")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "#PWR061")
 					(unit 1)
 				)
 			)
@@ -15003,6 +15254,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 243.84 147.32 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5fb5d005-fe08-4c10-a408-7a0240262289")
+		(property "Reference" "#PWR057"
+			(at 243.84 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 243.713 142.9258 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 243.84 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 243.84 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 243.84 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f92735d4-65c4-432b-b0da-670e340771ae")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "#PWR057")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 40.64 77.47 0)
 		(unit 1)
@@ -15021,7 +15337,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 44.45 78.74 0)
 			(effects
 				(font
@@ -15057,7 +15373,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C1523"
 			(at 40.64 77.47 0)
 			(effects
 				(font
@@ -15075,71 +15391,6 @@
 			(project "pico2-vga-adapter"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 307.34 213.36 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6cf10deb-6a19-4afd-b773-2d3a6b0dff74")
-		(property "Reference" "#PWR057"
-			(at 307.34 207.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 307.213 208.9658 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 307.34 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 307.34 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 307.34 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "28739859-028a-4898-98b0-58734311f1e7")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "#PWR057")
 					(unit 1)
 				)
 			)
@@ -15164,7 +15415,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 78.74 66.04 0)
 			(effects
 				(font
@@ -15200,7 +15451,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C1523"
 			(at 74.93 64.77 0)
 			(effects
 				(font
@@ -15218,6 +15469,81 @@
 			(project "pico2-vga-adapter"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 275.59 158.75 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "743dfac8-f1c3-4e03-b945-815ec754e04f")
+		(property "Reference" "R24"
+			(at 273.304 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47"
+			(at 275.59 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 277.368 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 275.59 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 275.59 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23182"
+			(at 275.59 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d037bbe7-82dc-4965-a11d-7ee601c64b4f")
+		)
+		(pin "1"
+			(uuid "4e81f36f-1cf8-474b-93af-832596fd6432")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "R24")
 					(unit 1)
 				)
 			)
@@ -15440,7 +15766,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "884ae3bc-99eb-4fdb-b3f2-64a63d4d0125")
 		(property "Reference" "J4"
@@ -15594,7 +15920,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 299.72 228.6 90)
+		(at 236.22 170.18 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15602,23 +15928,23 @@
 		(dnp no)
 		(uuid "8e29f988-3d52-4e94-8800-9d3268165d78")
 		(property "Reference" "R19"
-			(at 299.72 226.314 90)
+			(at 236.22 167.894 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "470"
-			(at 299.72 228.6 90)
+		(property "Value" "330"
+			(at 236.22 170.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 299.72 230.378 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 236.22 171.958 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15627,7 +15953,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 299.72 228.6 0)
+			(at 236.22 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15636,7 +15962,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 299.72 228.6 0)
+			(at 236.22 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15644,8 +15970,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 299.72 228.6 0)
+		(property "LCSC" "C23138"
+			(at 236.22 172.466 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15669,7 +15995,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 299.72 223.52 90)
+		(at 236.22 165.1 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15677,23 +16003,23 @@
 		(dnp no)
 		(uuid "91145c50-5c1d-4a20-a469-efdb96fa466b")
 		(property "Reference" "R18"
-			(at 299.72 221.234 90)
+			(at 236.22 162.814 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "240"
-			(at 299.72 223.52 90)
+		(property "Value" "150"
+			(at 236.22 165.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 299.72 225.298 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 236.22 166.878 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15702,7 +16028,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 299.72 223.52 0)
+			(at 236.22 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15711,7 +16037,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 299.72 223.52 0)
+			(at 236.22 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15719,8 +16045,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 299.72 223.52 0)
+		(property "LCSC" "C22808"
+			(at 236.22 160.782 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15887,84 +16213,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 48.26 100.33 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ad94f932-213e-4ef5-96be-d0a8df39611a")
-		(property "Reference" "SW1"
-			(at 49.403 99.4953 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at 49.403 102.0322 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_Vertical_Wuerth_434133025816"
-			(at 43.18 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 43.18 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 48.26 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 48.26 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "19a13cbb-09e3-4671-8fca-4deec4f37ffd")
-		)
-		(pin "2"
-			(uuid "01f2aed9-e58b-46b3-89ea-6523f211fa81")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 76.2 35.56 0)
 		(unit 1)
@@ -15982,7 +16230,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7u"
+		(property "Value" "4.7uF"
 			(at 79.121 36.703 0)
 			(effects
 				(font
@@ -16018,7 +16266,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C1523"
 			(at 76.2 35.56 0)
 			(effects
 				(font
@@ -16161,7 +16409,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C17168"
 			(at 118.11 264.16 0)
 			(effects
 				(font
@@ -16179,71 +16427,6 @@
 			(project "pico2-vga-adapter"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "R10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 307.34 184.15 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c0d575c9-6f55-46f1-b732-714140c48141")
-		(property "Reference" "#PWR056"
-			(at 307.34 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 307.213 179.7558 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 307.34 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 307.34 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 307.34 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5763b10c-e477-4af5-9435-01e14ea47201")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "#PWR056")
 					(unit 1)
 				)
 			)
@@ -16464,7 +16647,7 @@
 				)
 			)
 		)
-		(property "Value" "1100"
+		(property "Value" "680"
 			(at 299.72 175.26 90)
 			(effects
 				(font
@@ -16472,7 +16655,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 299.72 177.038 90)
 			(effects
 				(font
@@ -16499,7 +16682,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C23228"
 			(at 299.72 175.26 0)
 			(effects
 				(font
@@ -16589,6 +16772,81 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 243.84 151.13 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d290fc2a-1ab8-4e57-997f-45c3091e2dc5")
+		(property "Reference" "R21"
+			(at 241.554 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33"
+			(at 243.84 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 245.618 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 243.84 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 243.84 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23140"
+			(at 243.84 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2cab50f0-2b80-4c93-a763-421bbba87d55")
+		)
+		(pin "1"
+			(uuid "0b460e6e-4f63-4349-82c3-dd24ed0c045d")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 300.99 138.43 180)
 		(unit 1)
@@ -16649,6 +16907,146 @@
 			(project "pico2-vga-adapter"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "#PWR059")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 307.34 147.32 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d9327bae-3075-4c43-83d2-609bfa92503c")
+		(property "Reference" "#PWR062"
+			(at 307.34 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 307.213 142.9258 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 307.34 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 307.34 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 307.34 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c51143f6-82ec-448f-8208-ec98baecdf58")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "#PWR062")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 307.34 158.75 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d9c14758-3249-469f-9441-31f0ff3754f2")
+		(property "Reference" "R26"
+			(at 305.054 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47"
+			(at 307.34 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 309.118 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 307.34 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 307.34 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23182"
+			(at 307.34 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "6b12cf2a-4228-4f12-88bd-cf73537791ca")
+		)
+		(pin "1"
+			(uuid "07efb6d2-19f6-492c-9a7c-6e6b4d2faf5c")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "R26")
 					(unit 1)
 				)
 			)
@@ -16816,6 +17214,81 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 307.34 151.13 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e10232b2-10d9-4f93-866a-69a64ec4d24a")
+		(property "Reference" "R25"
+			(at 305.054 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "33"
+			(at 307.34 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 309.118 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 307.34 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 307.34 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23140"
+			(at 307.34 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "361e7016-28c4-45e3-a3be-3b8b43650a60")
+		)
+		(pin "1"
+			(uuid "89caa4b6-f0f7-42fd-91dd-4fcc59f10e8f")
+		)
+		(instances
+			(project "pico2-vga-adapter"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "R25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:DE15_Receptacle_HighDensity_MountingHoles")
 		(at 360.68 176.53 0)
 		(unit 1)
@@ -16935,7 +17408,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 299.72 194.31 90)
+		(at 267.97 165.1 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16943,23 +17416,23 @@
 		(dnp no)
 		(uuid "e6fa0731-6f96-4944-b744-5ed71b08c2d8")
 		(property "Reference" "R14"
-			(at 299.72 192.024 90)
+			(at 267.97 162.814 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "270"
-			(at 299.72 194.31 90)
+		(property "Value" "150"
+			(at 267.97 165.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 299.72 196.088 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 267.97 166.878 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16968,7 +17441,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 299.72 194.31 0)
+			(at 267.97 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16977,7 +17450,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 299.72 194.31 0)
+			(at 267.97 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16985,8 +17458,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 299.72 194.31 0)
+		(property "LCSC" "C22808"
+			(at 267.97 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17010,81 +17483,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 307.34 217.17 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f0d30eee-d43b-4168-a96d-2f9d9db9c937")
-		(property "Reference" "R21"
-			(at 305.054 217.17 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "150"
-			(at 307.34 217.17 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 309.118 217.17 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 307.34 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 307.34 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 307.34 217.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "03b71803-bc43-4aaa-b7ba-e58905b191ee")
-		)
-		(pin "1"
-			(uuid "0ce7897a-0a14-435f-a6b8-2651c0afff36")
-		)
-		(instances
-			(project "pico2-vga-adapter"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "R21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 299.72 165.1 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -17100,7 +17498,7 @@
 				)
 			)
 		)
-		(property "Value" "270"
+		(property "Value" "150"
 			(at 299.72 165.1 90)
 			(effects
 				(font
@@ -17108,7 +17506,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 299.72 166.878 90)
 			(effects
 				(font
@@ -17135,7 +17533,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C22808"
 			(at 299.72 165.1 0)
 			(effects
 				(font
@@ -17433,7 +17831,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 299.72 199.39 90)
+		(at 267.97 170.18 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17441,23 +17839,23 @@
 		(dnp no)
 		(uuid "fdb2691a-56d5-4669-897c-1007bc914c1a")
 		(property "Reference" "R15"
-			(at 299.72 197.104 90)
+			(at 267.97 167.894 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "560"
-			(at 299.72 199.39 90)
+		(property "Value" "330"
+			(at 267.97 170.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 299.72 201.168 90)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 267.97 171.958 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17466,7 +17864,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 299.72 199.39 0)
+			(at 267.97 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17475,7 +17873,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 299.72 199.39 0)
+			(at 267.97 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17483,8 +17881,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 299.72 199.39 0)
+		(property "LCSC" "C23138"
+			(at 267.97 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
